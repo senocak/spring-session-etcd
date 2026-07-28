@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Auth</title>
+</head>
+<body>
+    <div th:replace="~{fragments/header :: siteHeader}"></div>
+    <br/><br/>
+    <div th:if="${loggedIn != null and loggedIn}">
+        <h2>Logged In User Details</h2>
+        <p><strong>Name:</strong> <span th:text="${loggedInUserName}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${loggedInUserEmail}"></span></p>
+        <p><strong>Roles:</strong> <span th:text="${loggedInUserRoles}"></span></p>
+    </div>
+    <div th:if="${loggedIn == null or !loggedIn}">
+        <p>You are not logged in.</p>
+    </div>
+</body>
+</html>

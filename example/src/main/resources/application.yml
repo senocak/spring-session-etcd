@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:h2:./storage/stock;AUTO_SERVER=TRUE;
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  profiles:
+    active:
+      - etcd
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.web.access: TRACE
+
+app:
+  session:
+    etcd:
+      endpoints: http://localhost:2379
+      namespace: spring-session/demo

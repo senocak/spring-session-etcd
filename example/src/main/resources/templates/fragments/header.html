@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav th:fragment="siteHeader">
+        <a th:href="@{/index}">Home</a>
+
+        <th:block th:if="${loggedIn == null or !loggedIn}">
+            <a th:href="@{/register}">Register</a>
+            <a th:href="@{/login}">Login</a>
+        </th:block>
+
+        <th:block th:if="${loggedIn != null and loggedIn}">
+            <a th:href="@{/users}">Users</a>
+            <a th:href="@{/logout}">Logout</a>
+        </th:block>
+    </nav>
+</body>
+</html>
